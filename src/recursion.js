@@ -47,12 +47,19 @@ let sumBelow = function (n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 let range = function (x, y) {
-    let arr = [];
-    if (x === y - 1) return arr;
-    if (x < y) return arr.concat([x + 1 + range(x + 1, y)])
+    if (x === y) return [];
+    if (x < y) {
+        if (x === y - 1) return [];
+        else return [x + 1, ...range(x + 1, y)];
+    } else {
+        if (x === y + 1) return [];
+        else return [x - 1, ...range(x - 1, y)]
+    }
 
 };
-console.log(range(2, 9))
+// console.log(range(2, 9))
+// console.log(range(-2, 9))
+// console.log(range(9, 2))
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -60,7 +67,12 @@ console.log(range(2, 9))
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 let exponent = function (base, exp) {
+    if (exp === 0) return 1;
+    if (exp < 0) return 1/base * exponent(base, exp + 1)
+    else return base * exponent(base, exp - 1)
 };
+
+console.log(exponent(4, 3))
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
