@@ -24,12 +24,14 @@ let sum = function (array) {
 let arraySum = function (array) {
     if (array.length === 0) return 0
 
+
 };
 
 // 4. Check if a number is even.
 // isEven(2) // true
 // isEven(9) // false
 let isEven = function (n) {
+    if (n === 0) return false;
 };
 
 // 5. Sum all integers below a given integer.
