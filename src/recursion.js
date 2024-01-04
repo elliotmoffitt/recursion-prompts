@@ -47,8 +47,12 @@ let sumBelow = function (n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 let range = function (x, y) {
-    
+    let arr = [];
+    if (x === y - 1) return arr;
+    if (x < y) return arr.concat([x + 1 + range(x + 1, y)])
+
 };
+console.log(range(2, 9))
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
